@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="exit()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>doctorcitas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid fixed>
+  <ion-row *ngFor="let obj of cita">
+    <ion-col size="12"> {{obj.paciente.Fullname}} </ion-col>
+    <ion-col size="12"> {{obj.horario.hora.Horainicio}}-{{obj.horario.hora.Horafin}}</ion-col>
+    <ion-col size="6">
+      <ion-button (click)="concluido(obj.id)">
+        Atendido
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button (click)="falto(obj.id)">
+        No Vino
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

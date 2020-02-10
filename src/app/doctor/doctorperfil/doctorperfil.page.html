@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="exit()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Mi Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-img class="image" [src]="doctor.Imagendoctor"></ion-img>
+        <ion-text color="light">
+          <p>Cambiar Foto</p>
+        </ion-text>
+      </ion-col>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title> {{doctor.Fullname}} </ion-card-title>
+            <ion-card-subtitle> {{doctor.Email}} </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>
+              {{doctor.Celular}}
+            </p>
+            <p>
+              {{doctor.Fechana}}
+            </p>
+            <p>
+              {{doctor.Genero}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
