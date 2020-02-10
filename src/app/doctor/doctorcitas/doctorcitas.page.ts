@@ -14,7 +14,7 @@ import { CitaService } from 'src/app/services/cita.service';
   styleUrls: ['./doctorcitas.page.scss'],
 })
 export class DoctorcitasPage implements OnInit {
-  fechahoy: Date = new Date();
+  hoy: Date = new Date();
   especialista: Especialista = {
     id: 0,
     EspecialidadId: 0,
@@ -100,10 +100,15 @@ export class DoctorcitasPage implements OnInit {
           Horafin: ''
       }
     }
-  }
+  };
+  citas:any;
+  citasdoctor:any;
+  citasfiltradas:any;
   cita: any = this.cita1;
   citaaa: any = this.cita1;
   codigodoctor;
+  citafiltrada1:any;
+  lafechasa;
   constructor(
     private doctorService: DoctorService,
     private citaService: CitaService,
@@ -131,15 +136,36 @@ export class DoctorcitasPage implements OnInit {
     });
     toast.present();
   }
+  async suspacienes() {
+    const toast = await this.toastcontroller.create({
+      message: 'sus pacientes son',
+      duration: 1500,
+      animated: true,
+      color: 'success',
+      position: 'top'
+    });
+    toast.present();
+  }
+  async nohaycitas() {
+    const toast = await this.toastcontroller.create({
+      message: 'no hay citas para hoy',
+      duration: 1500,
+      animated: true,
+      color: 'warning',
+      position: 'top'
+    });
+    toast.present();
+  }
   ngOnInit() {
-    const dd = this.fechahoy.getDate();
-    const mm = this.fechahoy.getMonth() + 1;
-    const yyyy = this.fechahoy.getFullYear();
-    console.log(dd);
-    console.log(mm);
-    console.log(yyyy);
-    const lafecha = new Date(yyyy,mm,dd);
-    console.log(lafecha);
+    const dd = this.hoy.getDate();
+    const mm = this.hoy.getMonth();
+    const yyyy = this.hoy.getFullYear();
+    // console.log(dd);
+    // console.log(mm);
+    // console.log(yyyy);
+    const fechahoy = new Date(yyyy,mm,dd);
+    // let datehoy = fechahoy.getTimezoneOffset();
+    // console.log(fechahoy);
     const params = this.activatedRoute.snapshot.params;
     if (params.id) {
       this.doctorService.getDoctor(params.id)
@@ -149,11 +175,22 @@ export class DoctorcitasPage implements OnInit {
             this.doctor = res;
             this.codigodoctor = this.doctor.id;
             if (this.codigodoctor) {
-              this.citaService.getCitaporfecha(lafecha).subscribe(
+              this.citaService.getCitaestado().subscribe(
                 res => {
                   console.log(res);
-                  this.cita=res;
-
+                  this.citas=res;
+                  const filtro1 = this.citas;
+                  const fitradofecha = [];
+                  //filtrar por el doctor
+                  for (const parametro of filtro1) {
+                    const wasa = parametro.horario.especialista.DoctorId;
+                    if (wasa===this.codigodoctor) {
+                      console.log("reservas pal doctor");
+                      fitradofecha.push(parametro);
+                      this.citasdoctor=fitradofecha;
+                    }
+                  }
+                  console.log(this.citasdoctor);
                 }
               )
             }

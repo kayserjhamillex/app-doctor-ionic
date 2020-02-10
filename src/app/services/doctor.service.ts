@@ -10,6 +10,7 @@ const token = 'auth-token';
 })
 export class DoctorService {
   apiUrl = 'https://quiet-journey-49563.herokuapp.com/doctor';
+  apiUrlespecialista = 'https://quiet-journey-49563.herokuapp.com/especialista';
   autenticationState = new BehaviorSubject(false);
   constructor(
               private storage: Storage,

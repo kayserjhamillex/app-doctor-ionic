@@ -10,8 +10,8 @@ export class CitaService {
   apiUrlcita = 'https://quiet-journey-49563.herokuapp.com/cita';
   constructor(private http: HttpClient) { }
 
-  getCitaporfecha(fecha: Date) {
-    return this.http.get(`${this.apiUrlcita}/filtro/${fecha}`);
+  getCitaestado() {
+    return this.http.get(`${this.apiUrlcita}/filtro/estado`);
   }
 
   getCita(id: string) {
