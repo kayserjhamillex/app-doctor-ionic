@@ -11,10 +11,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { from } from 'rxjs';
 
-//para los formularios
+// para los formularios
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-//para el servidor apirest
+// para el servidor apirest
 import { HttpClientModule } from '@angular/common/http';
 
 

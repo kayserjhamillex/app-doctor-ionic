@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { DoctorcitasPageRoutingModule } from './doctorcitas-routing.module';
-
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { DoctorcitasPage } from './doctorcitas.page';
+import { DoctorcitasPageRoutingModule } from './doctorcitas-routing.module';
 
 @NgModule({
   imports: [

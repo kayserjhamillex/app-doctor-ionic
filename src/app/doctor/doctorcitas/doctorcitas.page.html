@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button (click)="exit()">
-        <ion-icon name="exit-outline"></ion-icon>
+        <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title>doctorcitas</ion-title>
@@ -12,21 +12,28 @@
   <ion-grid fixed>
     <ion-row>
       <ion-list padding>
-        <ion-item *ngFor="let item of citas;let i=index">
-          {{item.paciente.Fullname}}
-          <br>
-          <p>
-            {{item.horario.hora.Horainicio}}-{{item.horario.hora.Horafin}}
-          </p>
-          <br>
-          <p>
-            <ion-button (click)="concluido(item.id)">
-              Atendido
-            </ion-button>
-            <ion-button (click)="falto(item.id)">
-              No Vino
-            </ion-button>
-          </p>
+        <ion-item *ngFor="let item of citasfiltradas;let i=index">
+          <ion-col size="12">
+            <ion-col size="12">
+              {{item.paciente.Fullname}}
+            </ion-col>
+            <br>
+            <ion-col size="12">
+              {{item.horario.hora.Horainicio}}-{{item.horario.hora.Horafin}}
+            </ion-col>
+            <br>
+            <ion-col size="6">
+              <ion-button (click)="concluido(item.id)">
+                Atendido
+              </ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button (click)="falto(item.id)">
+                No Vino
+              </ion-button>
+            </ion-col>
+            <br>
+          </ion-col>
         </ion-item>
       </ion-list>
     </ion-row>

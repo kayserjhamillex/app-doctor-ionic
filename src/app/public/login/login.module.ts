@@ -8,8 +8,8 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 
-//para los formularios
-import { ReactiveFormsModule, FormsModule } from '@angular/forms'
+// para los formularios
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [

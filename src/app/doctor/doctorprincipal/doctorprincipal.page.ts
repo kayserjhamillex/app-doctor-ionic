@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { DoctorService } from 'src/app/services/doctor.service';
-import { ToastController } from '@ionic/angular';
 import { Doctor } from 'src/app/models/Doctor';
+import { ToastController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
   selector: 'app-doctorprincipal',
@@ -100,7 +100,7 @@ export class DoctorprincipalPage implements OnInit {
       );
   }
 
-  logout () {
+  logout() {
     this.doctorService.logout();
     this.saliendo();
   }

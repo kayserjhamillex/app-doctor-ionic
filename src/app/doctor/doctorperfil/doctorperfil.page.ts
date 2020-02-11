@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { DoctorService } from 'src/app/services/doctor.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from 'src/app/models/Doctor';
 import { ToastController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
   selector: 'app-doctorperfil',
@@ -49,7 +49,7 @@ export class DoctorperfilPage implements OnInit {
             this.doctor = res;
           },
           err => console.log(err)
-        )
+        );
     }
   }
   exit() {
