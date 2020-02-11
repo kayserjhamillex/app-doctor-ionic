@@ -241,19 +241,21 @@ export class DoctorcitasPage implements OnInit {
                   console.log(this.citasdoctor);
                   const divisor = 1000;
                   const array1 = this.citasdoctor;
-                  const numero1 = this.lafechasa;
-                  const numero = this.lafechasa1;
-                  console.log(numero);
-                  let array2 = [];
+                  const numero = this.lafechasa;
+                  const numero1 = this.lafechasa1;
+                  const array2 = [];
                   for (const obj of array1) {
                     const numfecha = new Date(obj.Fechacita).getTime();
                     console.log(numfecha);
                     const numeroselect = (numfecha / divisor);
                     console.log(numeroselect);
+                    console.log(numero);
                     if (numeroselect === numero) {
                       console.log('encontrando fechas iguales');
                       array2.push(obj);
                       this.citasfiltradas = array2;
+                    } else {
+                      console.log('no hay coincidencia joder');
                     }
                   }
                   // tslint:disable-next-line: no-conditional-assignment
@@ -294,46 +296,46 @@ export class DoctorcitasPage implements OnInit {
     this.saliendo();
   }
 
-  concluido(wasa: number) {
+  concluido(wasa) {
     if (wasa) {
-      this.atendido();
+      this.citaService.getCita(wasa).subscribe(
+        res => {
+          console.log(res);
+          this.citaa = res;
+          this.citaa.Estado = this.asistio;
+          this.citaService.updateCita(wasa, this.citaa).subscribe(
+            // tslint:disable-next-line: no-shadowed-variable
+            res => {
+              console.log(res);
+              this.citaaa = res;
+              this.atendido();
+              this.ngOnInit();
+            },
+            err => console.error(err)
+          );
+        }
+      );
     }
-    // if (wasa) {
-    //   this.citaService.getCita(wasa).subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.citaa = res;
-    //       this.asistio=this.citaa.Estado;
-    //       this.citaService.updateCita(wasa, this.citaa).subscribe(
-    //         res => {
-    //           console.log(res);
-    //           this.citaaa=res;
-    //         },
-    //         err => console.error(err)
-    //       );
-    //     }
-    //   );
-    // }
   }
-  falto(wasaa: number) {
+  falto(wasaa) {
     if (wasaa) {
-      this.nollego();
+      this.citaService.getCita(wasaa).subscribe(
+        res => {
+          console.log(res);
+          this.citaa = res;
+          this.citaa.Estado = this.noasistio;
+          this.citaService.updateCita(wasaa, this.citaa).subscribe(
+            // tslint:disable-next-line: no-shadowed-variable
+            res => {
+              console.log(res);
+              this.citaaa = res;
+              this.nollego();
+              this.ngOnInit();
+            },
+            err => console.error(err)
+          );
+        }
+      );
     }
-    // if (wasa) {
-    //   this.citaService.getCita(wasa).subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.citaa = res;
-    //       this.noasistio=this.citaa.Estado;
-    //       this.citaService.updateCita(wasa, this.citaa).subscribe(
-    //         res => {
-    //           console.log(res);
-    //           this.citaaa=res;
-    //         },
-    //         err => console.error(err)
-    //       );
-    //     }
-    //   );
-    // }
   }
 }
