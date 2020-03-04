@@ -29,6 +29,10 @@ export class DoctorService {
   updateDoctor(id: string|number, updatedDoctor: Doctor): Observable<Doctor> {
     return this.http.put(`${this.apiUrl}/update/${id}`, updatedDoctor);
   }
+
+  getDoctors() {
+    return this.http.get(`${this.apiUrl}`);
+  }
   getDoctor(id: string) {
     return this.http.get(`${this.apiUrl}/${id}`);
   }

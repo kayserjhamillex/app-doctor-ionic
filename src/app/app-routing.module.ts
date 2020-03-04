@@ -13,6 +13,14 @@ const routes: Routes = [
     // canActivate: [AuthGuardService],
     loadChildren: './doctor/doctor-routing.module#DoctorRoutingModule'
   },
+  {
+    path: 'valid',
+    loadChildren: () => import('./public/validaruser/validaruser.module').then( m => m.ValidaruserPageModule)
+  },
+  {
+    path: 'updatepass/:id',
+    loadChildren: () => import('./public/updatepassword/updatepassword.module').then( m => m.UpdatepasswordPageModule)
+  },
 ];
 
 @NgModule({

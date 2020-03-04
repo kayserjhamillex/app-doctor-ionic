@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title>Validar Doctor</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -10,24 +10,20 @@
       <ion-list>
         <ion-item>
           <ion-label floating>
-            Usuario
+            Correo
           </ion-label>
-          <ion-input type="text" [(ngModel)]="parametros.correo"></ion-input>
+          <ion-input type="text" [(ngModel)]="validador.email"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>
-            Contraseña
+            Celular
           </ion-label>
-          <ion-input type="password" [(ngModel)]="parametros.contra"></ion-input>
+          <ion-input type="text" [(ngModel)]="validador.cell"></ion-input>
         </ion-item>
       </ion-list>
-      <ion-button (click)="login()" expant="block">
-        Login
-      </ion-button>
-      <ion-button (click)="pass()" expant="block">
-        Olvide mi Contraseña
+      <ion-button (click)="validar()" expant="block">
+        Ir a Actualizar mi Contraseña
       </ion-button>
     </ion-card-content>
-    
   </ion-card>
 </ion-content>

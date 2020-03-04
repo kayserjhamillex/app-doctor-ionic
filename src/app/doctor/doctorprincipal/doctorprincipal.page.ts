@@ -84,7 +84,7 @@ export class DoctorprincipalPage implements OnInit {
         'citas',
         this.codigodoctor
       ]
-      );
+    );
   }
   perfildoctor() {
     const params = this.activatedRoute.snapshot.params;

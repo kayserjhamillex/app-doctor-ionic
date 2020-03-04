@@ -16,12 +16,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // para el servidor apirest
 import { HttpClientModule } from '@angular/common/http';
+// import { CitasviewPipe } from './doctor/citasview.pipe';
 
 
 @NgModule({
   declarations:
   [
-    AppComponent
+    AppComponent,
+    CitasviewPipe
   ],
   entryComponents: [],
   imports:

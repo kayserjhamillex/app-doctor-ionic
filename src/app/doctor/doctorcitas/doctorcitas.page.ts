@@ -157,7 +157,6 @@ export class DoctorcitasPage implements OnInit {
   console.log(numero2);
   this.lafechasa = numero1;
   this.lafechasa1 = numero2;
-
   }
   async atendido() {
     const toast = await this.toastcontroller.create({
@@ -255,14 +254,13 @@ export class DoctorcitasPage implements OnInit {
                       array2.push(obj);
                       this.citasfiltradas = array2;
                     } else {
-                      console.log('no hay coincidencia joder');
+                      console.log('no hay coincidencia');
                     }
-                  }
-                  // tslint:disable-next-line: no-conditional-assignment
-                  if (array2 === []) {
-                    this.nohaycitas();
-                  } else {
-                    this.tienepacientes();
+                    if (this.citasfiltradas !== []) {
+                      this.tienepacientes();
+                    } else {
+                      this.nohaycitas();
+                    }
                   }
                 }
               );

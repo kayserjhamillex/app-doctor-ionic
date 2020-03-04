@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { Doctor } from 'src/app/models/Doctor';
 import { Router } from '@angular/router';
-// import { Toast } from '@ionic-native/toast/ngx';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -32,7 +31,6 @@ export class LoginPage implements OnInit {
   constructor(
     private doctorService: DoctorService,
     private router: Router,
-    // private toast: Toast,
     private toastcontroller: ToastController
     ) { }
 
@@ -45,9 +43,6 @@ export class LoginPage implements OnInit {
         position: 'top'
       });
       toast.present();
-      // toast.onDidDismiss().then((val)=>{
-      //   console.log('toast dismissed');
-      // })
     }
     async incorrecto() {
       const toast = await this.toastcontroller.create({
@@ -58,12 +53,17 @@ export class LoginPage implements OnInit {
         position: 'top'
       });
       toast.present();
-      // toast.onDidDismiss().then((val)=>{
-      //   console.log('toast dismissed');
-      // })
     }
   ngOnInit() {
   }
+  pass() {
+    this.router.navigate(
+      [
+        '/valid',
+      ]
+    );
+  }
+
   login() {
     console.log(this.parametros);
     this.doctorService.getlogin(this.parametros.correo, this.parametros.contra).subscribe(res => {
@@ -79,7 +79,7 @@ export class LoginPage implements OnInit {
             'home',
             this.codigodoctor
           ]
-          );
+        );
       } else {
         this.incorrecto();
       }

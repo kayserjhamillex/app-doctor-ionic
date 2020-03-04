@@ -18,6 +18,10 @@ const routes: Routes = [
     // canActivate: [AuthGuardService],
     loadChildren: () => import('./doctorperfil/doctorperfil.module').then( m => m.DoctorperfilPageModule)
   },
+  {
+    path: 'citasview',
+    loadChildren: () => import('./citasview/citasview.module').then( m => m.CitasviewPageModule)
+  },
 ];
 
 @NgModule({
