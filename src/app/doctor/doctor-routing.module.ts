@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./doctorperfil/doctorperfil.module').then( m => m.DoctorperfilPageModule)
   },
   {
-    path: 'citasview',
+    path: 'citasview/:id',
     loadChildren: () => import('./citasview/citasview.module').then( m => m.CitasviewPageModule)
   },
 ];

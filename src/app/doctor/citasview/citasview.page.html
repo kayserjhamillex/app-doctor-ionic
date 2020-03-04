@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>citasview</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="exit()">
+        <ion-img class="image" src="../../assets/img/back.png"></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Citas de la fecha elegida</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
+  <ion-button (click)="pacientes()" color="primary" expand="full" shape="round" fill="outline">Ver Pacientes</ion-button>
+  <ion-grid *ngIf="wakanda" fixed>
+    <ion-row>
+      <ion-list padding>
+        <ion-item *ngFor="let item of citasfiltradas;let i=index">
+          <ion-col size="12">
+            <ion-col size="12">
+              {{item.paciente.Fullname}}
+            </ion-col>
+            <br>
+            <ion-col size="12">
+              {{item.horario.hora.Horainicio}}-{{item.horario.hora.Horafin}}
+            </ion-col>
+          </ion-col>
+        </ion-item>
+      </ion-list>
+    </ion-row>
+  </ion-grid>
 </ion-content>
