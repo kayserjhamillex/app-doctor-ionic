@@ -1,8 +1,8 @@
+import { Router } from '@angular/router';
+import { Doctor } from 'src/app/models/Doctor';
+import { ToastController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from 'src/app/services/doctor.service';
-import { Doctor } from 'src/app/models/Doctor';
-import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',

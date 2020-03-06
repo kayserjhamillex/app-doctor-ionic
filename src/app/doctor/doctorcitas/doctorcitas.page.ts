@@ -235,8 +235,8 @@ export class DoctorcitasPage implements OnInit {
                       console.log('reservas pal doctor');
                       fitradofecha.push(parametro);
                       this.citasdoctor = fitradofecha;
-                      }
                     }
+                  }
                   console.log(this.citasdoctor);
                   const divisor = 1000;
                   const array1 = this.citasdoctor;
@@ -256,11 +256,11 @@ export class DoctorcitasPage implements OnInit {
                     } else {
                       console.log('no hay coincidencia');
                     }
-                    if (this.citasfiltradas !== []) {
-                      this.tienepacientes();
-                    } else {
-                      this.nohaycitas();
-                    }
+                  }
+                  if (this.citasfiltradas !== []) {
+                    this.tienepacientes();
+                  } else if (this.citasfiltradas === []) {
+                    this.nohaycitas();
                   }
                 }
               );

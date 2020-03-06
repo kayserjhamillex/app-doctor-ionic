@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { DoctorService } from 'src/app/services/doctor.service';
-import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
   selector: 'app-validaruser',

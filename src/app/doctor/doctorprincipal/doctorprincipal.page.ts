@@ -40,6 +40,16 @@ export class DoctorprincipalPage implements OnInit {
     });
     toast.present();
   }
+  async futurascitas() {
+    const toast = await this.toastcontroller.create({
+      message: 'ingresando a ver sus futuras citas',
+      duration: 1500,
+      animated: true,
+      color: 'tertiary',
+      position: 'top'
+    });
+    toast.present();
+  }
   async lista() {
     const toast = await this.toastcontroller.create({
       message: 'lista de sus pacientes',
@@ -95,6 +105,19 @@ export class DoctorprincipalPage implements OnInit {
       [
         '/doctor',
         'perfil',
+        this.codigodoctor
+      ]
+      );
+  }
+  futurospacientes() {
+    const params = this.activatedRoute.snapshot.params;
+    this.codigodoctor = params.id;
+    console.log(this.codigodoctor);
+    this.futurascitas();
+    this.router.navigate(
+      [
+        '/doctor',
+        'citasview',
         this.codigodoctor
       ]
       );

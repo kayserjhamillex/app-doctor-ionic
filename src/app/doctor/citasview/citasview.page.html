@@ -5,11 +5,19 @@
         <ion-img class="image" src="../../assets/img/back.png"></ion-img>
       </ion-button>
     </ion-buttons>
-    <ion-title>Citas de la fecha elegida</ion-title>
+    <ion-title>Pacientes de la fecha elegida</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-button (click)="pacientes()" color="primary" expand="full" shape="round" fill="outline">Ver Pacientes</ion-button>
+  <ion-label floating>
+    Usuario
+  </ion-label>
+  <ion-item>
+    <ion-datetime  placeholder="Select Date" display-format="DD.MM.YYYY" [(ngModel)]="datito.elegido"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="pacientes()" color="primary" expand="full" shape="round" fill="outline">Ver Pacientes</ion-button>
+  </ion-item>
   <ion-grid *ngIf="wakanda" fixed>
     <ion-row>
       <ion-list padding>

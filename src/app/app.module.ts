@@ -22,8 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations:
   [
-    AppComponent,
-    CitasviewPipe
+    AppComponent
   ],
   entryComponents: [],
   imports:
