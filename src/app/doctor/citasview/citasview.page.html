@@ -13,14 +13,14 @@
     Usuario
   </ion-label>
   <ion-item>
-    <ion-datetime  placeholder="Select Date" display-format="DD.MM.YYYY" [(ngModel)]="datito.elegido"></ion-datetime>
+    <ion-datetime placeholder="Select Date" display-format="YYYY-MM-DD" [(ngModel)]="datito.elegido" (ngModelChange)="pacientes()"></ion-datetime>
   </ion-item>
   <ion-item>
     <ion-button (click)="pacientes()" color="primary" expand="full" shape="round" fill="outline">Ver Pacientes</ion-button>
   </ion-item>
   <ion-grid *ngIf="wakanda" fixed>
     <ion-row>
-      <ion-list padding>
+      <ion-list class="ion-padding">
         <ion-item *ngFor="let item of citasfiltradas;let i=index">
           <ion-col size="12">
             <ion-col size="12">

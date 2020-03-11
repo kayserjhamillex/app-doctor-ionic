@@ -57,13 +57,17 @@ export class CitasviewPage implements OnInit {
   lafechasa1;
   wakanda = false;
   lafechadeldia;
+  customPickerOptions: any;
   constructor(
     private doctorService: DoctorService,
     private citaService: CitaService,
     private activatedRoute: ActivatedRoute,
     private toastcontroller: ToastController,
     private router: Router
-  ) { }
+  ) {   }
+  // updateMyDate($event) {
+  //   console.log($event); // --> wil contains $event.day, $event.month and $event.year
+  // }
   fechadeldia() {
     const d = this.hoy.getDate();
     const m = this.hoy.getMonth() + 1;
@@ -216,6 +220,7 @@ export class CitasviewPage implements OnInit {
       console.log(filtrado);
       if (Object.entries(filtrado).length > 0) {
         this.tienepacientes();
+        this.wakanda = true;
       } else if (Object.entries(filtrado).length === 0) {
         this.nohaycitas();
       }
